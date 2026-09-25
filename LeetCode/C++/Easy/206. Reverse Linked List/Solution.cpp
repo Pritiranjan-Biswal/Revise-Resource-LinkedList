@@ -11,23 +11,20 @@
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
-        vector<int> ans;
-        ListNode *temp= head;
-        while(temp != NULL) {
+        //so to solve this problem first we need to extract all the eleemnts from the linkedlist after that again store ball those in the linkedlist
+        ListNode* temp=head;
+        vector<int>ans;
+        while(temp) {
             ans.push_back(temp->val);
             temp=temp->next;
         }
-        int i=ans.size()-1;
+        int index=ans.size()-1;
         temp=head;
-        while(temp !=NULL){
-            temp->val=ans[i];
-            i--;
+        while(temp) {
+            temp->val=ans[index];
+            index--;
             temp=temp->next;
-
         }
         return head;
-        
-
     }
-
 };
